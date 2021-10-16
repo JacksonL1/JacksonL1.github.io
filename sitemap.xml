@@ -2,7 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2021/10/16/main/</loc>
+    <loc>http://chynapple.com/2021/10/16/main/</loc>
+    
+    <lastmod>2021-10-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://chynapple.com/404/index.html</loc>
+    
+    <lastmod>2021-10-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://chynapple.com/IT/index.html</loc>
+    
+    <lastmod>2021-10-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://chynapple.com/about/index.html</loc>
+    
+    <lastmod>2021-10-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://chynapple.com/contact/index.html</loc>
+    
+    <lastmod>2021-10-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://chynapple.com/entertainment/index.html</loc>
+    
+    <lastmod>2021-10-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://chynapple.com/friends/index.html</loc>
+    
+    <lastmod>2021-10-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://chynapple.com/tags/index.html</loc>
     
     <lastmod>2021-10-16</lastmod>
     
@@ -12,7 +75,7 @@
   
 
   <url>
-    <loc>http://example.com/</loc>
+    <loc>http://chynapple.com/</loc>
     <lastmod>2021-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>

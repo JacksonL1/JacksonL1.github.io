@@ -3,11 +3,11 @@
   <title>J-Lock的个人博客</title>
   
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="http://chynapple.com/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
-  <updated>2021-10-09T07:47:46.991Z</updated>
-  <id>http://example.com/</id>
+  <link href="http://chynapple.com/"/>
+  <updated>2021-10-16T09:08:24.368Z</updated>
+  <id>http://chynapple.com/</id>
   
   <author>
     <name>大吉</name>
@@ -18,19 +18,20 @@
   
   <entry>
     <title>生活记录的开始</title>
-    <link href="http://example.com/2021/10/09/main_page/"/>
-    <id>http://example.com/2021/10/09/main_page/</id>
-    <published>2021-10-09T03:12:18.865Z</published>
-    <updated>2021-10-09T07:47:46.991Z</updated>
-    
-    <content type="html"><![CDATA[<p> 最近发现很多记忆力越来越差，看过的电影，忘了剧情；学过的知识，记得部分；认识的朋友，叫不上名；美好的瞬间，忘记细节。</p><p>记录会分为两大类</p><h2 id="技术分享"><a href="#技术分享" class="headerlink" title="技术分享"></a>技术分享</h2><h3 id="计算机基础、人工智能、摄影"><a href="#计算机基础、人工智能、摄影" class="headerlink" title="计算机基础、人工智能、摄影"></a>计算机基础、人工智能、摄影</h3><p>最近学习的内容分为以上三类，会不定期更新，所学的内容</p><h2 id="生活娱乐"><a href="#生活娱乐" class="headerlink" title="生活娱乐"></a>生活娱乐</h2><h3 id="影视剧-演出、旅游、美食"><a href="#影视剧-演出、旅游、美食" class="headerlink" title="影视剧/演出、旅游、美食"></a>影视剧/演出、旅游、美食</h3><p>近期看的比较好的影视剧/演出，游记，以及吃过的比较好吃的美食</p>]]></content>
+    <link href="http://chynapple.com/2021/10/16/main/"/>
+    <id>http://chynapple.com/2021/10/16/main/</id>
+    <published>2021-10-16T09:08:24.368Z</published>
+    <updated>2021-10-16T09:08:24.368Z</updated>
     
     
       
       
-    <summary type="html">&lt;p&gt; 最近发现很多记忆力越来越差，看过的电影，忘了剧情；学过的知识，记得部分；认识的朋友，叫不上名；美好的瞬间，忘记细节。&lt;/p&gt;
+        
+        
+    <summary type="html">&lt;p&gt;最近发现很多记忆力越来越差，看过的电影，忘了剧情；学过的知识，记得部分；认识的朋友，叫不上名；美好的瞬间，忘记细节。&lt;/p&gt;
 &lt;p&gt;记录会分为两大类&lt;/p&gt;
-&lt;h2 id=&quot;技术分享&quot;&gt;&lt;a href=&quot;#技术分享&quot; class=&quot;headerlink&quot; title=&quot;技</summary>
+&lt;h2 id=&quot;技术分享&quot;&gt;&lt;a href=&quot;#技术分享&quot; class=&quot;headerlink&quot;</summary>
+        
       
     
     
