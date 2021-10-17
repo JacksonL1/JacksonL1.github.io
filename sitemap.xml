@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://chynapple.com/entertainment/life/main/</loc>
+    <loc>https://chynapple.com/daily-life/main/</loc>
+    
+    <lastmod>2021-10-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chynapple.com/network-security/web-request/</loc>
     
     <lastmod>2021-10-17</lastmod>
     
@@ -92,7 +101,14 @@
 
   
   <url>
-    <loc>https://chynapple.com/tags/life/</loc>
+    <loc>https://chynapple.com/tags/Daily-Life/</loc>
+    <lastmod>2021-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chynapple.com/tags/web-request/</loc>
     <lastmod>2021-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -101,14 +117,14 @@
 
   
   <url>
-    <loc>https://chynapple.com/categories/entertainment/</loc>
+    <loc>https://chynapple.com/categories/Daily-Life/</loc>
     <lastmod>2021-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://chynapple.com/categories/entertainment/life/</loc>
+    <loc>https://chynapple.com/categories/Network-Security/</loc>
     <lastmod>2021-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

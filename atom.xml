@@ -6,7 +6,7 @@
   <link href="https://chynapple.com/atom.xml" rel="self"/>
   
   <link href="https://chynapple.com/"/>
-  <updated>2021-10-17T10:44:53.660Z</updated>
+  <updated>2021-10-17T11:02:05.121Z</updated>
   <id>https://chynapple.com/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>生活记录的开始</title>
-    <link href="https://chynapple.com/entertainment/life/main/"/>
-    <id>https://chynapple.com/entertainment/life/main/</id>
-    <published>2021-10-17T10:44:53.660Z</published>
-    <updated>2021-10-17T10:44:53.660Z</updated>
+    <link href="https://chynapple.com/daily-life/main/"/>
+    <id>https://chynapple.com/daily-life/main/</id>
+    <published>2021-10-17T11:02:05.121Z</published>
+    <updated>2021-10-17T11:02:05.121Z</updated>
     
     
       
@@ -36,12 +36,35 @@
     
     
     
-    <category term="entertainment" scheme="https://chynapple.com/categories/entertainment/"/>
-    
-    <category term="life" scheme="https://chynapple.com/categories/entertainment/life/"/>
+    <category term="Daily Life" scheme="https://chynapple.com/categories/Daily-Life/"/>
     
     
-    <category term="life" scheme="https://chynapple.com/tags/life/"/>
+    <category term="Daily Life" scheme="https://chynapple.com/tags/Daily-Life/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>当我们请求网页，计算机都做了什么？</title>
+    <link href="https://chynapple.com/network-security/web-request/"/>
+    <id>https://chynapple.com/network-security/web-request/</id>
+    <published>2021-10-17T11:02:05.121Z</published>
+    <updated>2021-10-17T11:02:05.121Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;​&lt;br&gt;        当我们在浏览器中，输入&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Network Security" scheme="https://chynapple.com/categories/Network-Security/"/>
+    
+    
+    <category term="web request" scheme="https://chynapple.com/tags/web-request/"/>
     
   </entry>
   
