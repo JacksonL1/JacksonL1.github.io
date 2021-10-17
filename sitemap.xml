@@ -38,6 +38,15 @@
   </url>
   
   <url>
+    <loc>https://chynapple.com/categories/</loc>
+    
+    <lastmod>2021-10-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chynapple.com/contact/</loc>
     
     <lastmod>2021-10-17</lastmod>
