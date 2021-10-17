@@ -6,7 +6,7 @@
   <link href="https://chynapple.com/atom.xml" rel="self"/>
   
   <link href="https://chynapple.com/"/>
-  <updated>2021-10-17T11:08:31.349Z</updated>
+  <updated>2021-10-17T11:16:25.049Z</updated>
   <id>https://chynapple.com/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>生活记录的开始</title>
-    <link href="https://chynapple.com/daily-life/main/"/>
-    <id>https://chynapple.com/daily-life/main/</id>
-    <published>2021-10-17T11:08:31.349Z</published>
-    <updated>2021-10-17T11:08:31.349Z</updated>
+    <link href="https://chynapple.com/ri-chang/main/"/>
+    <id>https://chynapple.com/ri-chang/main/</id>
+    <published>2021-10-17T11:16:25.049Z</published>
+    <updated>2021-10-17T11:16:25.049Z</updated>
     
     
       
@@ -36,19 +36,19 @@
     
     
     
-    <category term="Daily Life" scheme="https://chynapple.com/categories/Daily-Life/"/>
+    <category term="日常" scheme="https://chynapple.com/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
-    <category term="Daily Life" scheme="https://chynapple.com/tags/Daily-Life/"/>
+    <category term="日常" scheme="https://chynapple.com/tags/%E6%97%A5%E5%B8%B8/"/>
     
   </entry>
   
   <entry>
     <title>当我们请求网页，计算机都做了什么？</title>
-    <link href="https://chynapple.com/network-security/web-request/"/>
-    <id>https://chynapple.com/network-security/web-request/</id>
-    <published>2021-10-17T11:08:31.349Z</published>
-    <updated>2021-10-17T11:08:31.349Z</updated>
+    <link href="https://chynapple.com/wang-luo-an-quan/web-request/"/>
+    <id>https://chynapple.com/wang-luo-an-quan/web-request/</id>
+    <published>2021-10-17T11:16:25.049Z</published>
+    <updated>2021-10-17T11:16:25.049Z</updated>
     
     
       
@@ -61,7 +61,7 @@
     
     
     
-    <category term="Network Security" scheme="https://chynapple.com/categories/Network-Security/"/>
+    <category term="网络安全" scheme="https://chynapple.com/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
     
     <category term="web request" scheme="https://chynapple.com/tags/web-request/"/>
