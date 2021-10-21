@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>网站开发-Django</title>
+      <link href="/django/"/>
+      <url>/django/</url>
+      
+        <content type="html"><![CDATA[<p>  上周研究了如何用Hexo+Github来部署个人网页。看了一下Hexo的官方文档之后，还是无法做进一步的工作。不知道是否可以连接数据库，做动态页面等。<br>  首页的日期也无法动态更改。考虑过后，决定入另外一个坑-Django。毕竟之前用Python也做过一些开发，相对Java的Spring框架上手会容易一些。</p><h2 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h2><p>  作为一个Python的Web框架，Django需要Python。由于Python包含SQLite轻量级数据库。暂时就先不安装MySql了。<br>  可以通过Anaconda<a href="https://www.anaconda.com/products/individual#Downloads">https://www.anaconda.com/products/individual#Downloads</a>来安装Python。好处是可以创建不同的虚拟环境，来管理不同版本的Python及第三方库等。</p><h2 id="安装Django"><a href="#安装Django" class="headerlink" title="安装Django"></a>安装Django</h2><h3 id="通过pip安装正式发布版本"><a href="#通过pip安装正式发布版本" class="headerlink" title="通过pip安装正式发布版本"></a>通过pip安装正式发布版本</h3><p>anaconda自带pip，无需额外安装。在anaconda环境中，输入以下命令：</p><p>‘$ pip install Django’</p><h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>若要验证Django是否能被Python识别，可尝试导入Django：<br>‘&gt;&gt;&gt; import django’<br>‘&gt;&gt;&gt; print(django.get_version())’<br>‘3.2.8’</p><p>到此，我们就安装了Django。可以正式使用它来创建自己的网页了！</p><h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>首先，创建一个目录。打开命令行，cd到该目录，执行如下命令：</p><p>‘django-admin startproject mysite’</p><p>创建成功后，会出现mysite目录<br>‘’’mysite/<br>    manage.py<br>    mysite/<br>        <strong>init</strong>.py<br>        settings.py<br>        urls.py<br>        asgi.py<br>        wsgi.py<br>‘’’</p><p>· manage.py：今天刚开始学，感觉很多操作都和这个文件有关。它可以用各种方式管理Django下古墓的命令行工具。<br>· settings.py：Django项目的配置文件<br>· urls.py： URL声明。访问各个页面时配置的URL地址<br>· asgi.py： 运行在ASGI兼容的Web服务器上的入口<br>· wsgi.py： 运行在WSGI兼容的Web服务器上的入口</p><h3 id="创建一个简易web服务器"><a href="#创建一个简易web服务器" class="headerlink" title="创建一个简易web服务器"></a>创建一个简易web服务器</h3><p>‘python manage.py runserver’</p><p>执行的输出中会有一些警告信息，时因为没有处理数据库。不过没有关系，没有其他报错信息的话，可以通过<a href="http://127.0.0.1:8000/">http:/127.0.0.1:8000/</a>来访问web了</p><p><img src="/pictures/first_web_page.PNG" alt="first web page"></p><p>这篇整理了如何安装Python、Django以及如何创建一个简易web服务器，并访问。</p><p>后面就开始做页面了，虽然还是从静态页面开始，只要坚持下去，肯定会收获很大的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术分享 </category>
+          
+          <category> 网站开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> web develop </tag>
+            
+            <tag> Django </tag>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>伤害大脑的9个习惯</title>
       <link href="/brain-health/"/>
       <url>/brain-health/</url>
