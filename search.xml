@@ -4,6 +4,91 @@
   
     
     <entry>
+      <title>网站开发-Django</title>
+      <link href="/django/"/>
+      <url>/django/</url>
+      
+        <content type="html"><![CDATA[<p>  上周研究了如何用Hexo+Github来部署个人网页。看了一下Hexo的官方文档之后，还是无法做进一步的工作。不知道是否可以连接数据库，做动态页面等。<br>  首页的日期也无法动态更改。考虑过后，决定入另外一个坑-Django。毕竟之前用Python也做过一些开发，相对Java的Spring框架上手会容易一些。</p><h2 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h2><p>  作为一个Python的Web框架，Django需要Python。由于Python包含SQLite轻量级数据库。暂时就先不安装MySql了。<br>  可以通过<a href="https://www.anaconda.com/products/individual#Downloads">Anaconda</a> 来安装Python。好处是可以创建不同的虚拟环境，来管理不同版本的Python及第三方库等。</p><h2 id="安装Django"><a href="#安装Django" class="headerlink" title="安装Django"></a>安装Django</h2><h3 id="通过pip安装正式发布版本"><a href="#通过pip安装正式发布版本" class="headerlink" title="通过pip安装正式发布版本"></a>通过pip安装正式发布版本</h3><p>anaconda自带pip，无需额外安装。在anaconda环境中，输入以下命令：</p><pre><code>$ pip install Django</code></pre><h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>若要验证Django是否能被Python识别，可尝试导入Django：</p><pre><code>import djangoprint(django.get_version())3.2.8</code></pre><p>到此，我们就安装了Django。可以正式使用它来创建自己的网页了！</p><h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>首先，创建一个目录。打开命令行，cd到该目录，执行如下命令：</p><pre><code>django-admin startproject mysite</code></pre><p>创建成功后，会出现mysite目录</p><pre><code>mysite/    manage.py    mysite/        __init__.py        settings.py        urls.py        asgi.py        wsgi.py</code></pre><p>· <strong>manage.py</strong> ：今天刚开始学，感觉很多操作都和这个文件有关。它可以用各种方式管理Django下古墓的命令行工具。<br>· <strong>settings.py</strong> ：Django项目的配置文件<br>· <strong>urls.py</strong> ： URL声明。访问各个页面时配置的URL地址<br>· <strong>asgi.py</strong> ： 运行在ASGI兼容的Web服务器上的入口<br>· <strong>wsgi.py</strong> ： 运行在WSGI兼容的Web服务器上的入口</p><h3 id="创建一个简易web服务器"><a href="#创建一个简易web服务器" class="headerlink" title="创建一个简易web服务器"></a>创建一个简易web服务器</h3><pre><code>python manage.py runserver</code></pre><p>执行的输出中会有一些警告信息，时因为没有处理数据库。不过没有关系，没有其他报错信息的话，可以通过<a href="http://127.0.0.1:8000/">http:/127.0.0.1:8000/</a>来访问web了</p><p><img src="/pictures/first_web_page.PNG" alt="first web page"></p><p>这篇整理了如何安装Python、Django以及如何创建一个简易web服务器，并访问。</p><p>后面就开始做页面了，虽然还是从静态页面开始，只要坚持下去，肯定会收获很大的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术分享 </category>
+          
+          <category> 网站开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> web develop </tag>
+            
+            <tag> Django </tag>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>伤害大脑的9个习惯</title>
+      <link href="/brain-health/"/>
+      <url>/brain-health/</url>
+      
+        <content type="html"><![CDATA[<p>本篇记录至TED心理视频，仅仅是为了提醒自己平时多注意以下几点。<br>如果怀疑自己出现认知能力下降或任何健康情况，还请速速就医。</p><h2 id="第一，在黑暗中待的太久。"><a href="#第一，在黑暗中待的太久。" class="headerlink" title="第一，在黑暗中待的太久。"></a>第一，在黑暗中待的太久。</h2><p>  阳光有助于保持大脑运转良好。没有阳光，大脑就不知道什么时间，如何释放褪黑素。<br>  另外，阳光对视力也有很大的影响。虽然阳光并不是唯一相关因素，但2009年，德国图宾根大学眼科研究机构的几位研究人员，对小鸡做了实验。发现高光照水平，即室外光照强度可以大大减缓小鸡诱发性近视的形成。与哪些出于正常室内光线下的小鸡相比，该过程减缓60%。</p><h2 id="第二，阅览太多负面新闻"><a href="#第二，阅览太多负面新闻" class="headerlink" title="第二，阅览太多负面新闻"></a>第二，阅览太多负面新闻</h2><p> 每天接收的媒体新闻，会影响情绪、思维和行为。据心理治疗师安妮·米勒称，持续接触负面信息会影响大脑，过度接收负面信息会引发应激反应，会对身体、情感和心理健康造成损害。</p><h2 id="第三，耳机声音开太大"><a href="#第三，耳机声音开太大" class="headerlink" title="第三，耳机声音开太大"></a>第三，耳机声音开太大</h2><p> 用耳机听音乐，既方便又放松。长时间对着耳朵大声播放音乐，会对大脑有害无益。吵闹的音乐可能会导致听力损失，导致记忆力减退。</p><h2 id="第四，社交隔离"><a href="#第四，社交隔离" class="headerlink" title="第四，社交隔离"></a>第四，社交隔离</h2><p> 总是回避社交活动或聚会所产生的影响，实际上是相当令人震惊的。除了对心理健康的影响，如：抑郁症。还有对大脑本身的潜在负面影响。根据俄亥俄州立大学2012年的一项研究，长期的社会隔离，会导致大脑的应激反应，使你更容易中风。</p><h2 id="第五，屏幕使用时间过长"><a href="#第五，屏幕使用时间过长" class="headerlink" title="第五，屏幕使用时间过长"></a>第五，屏幕使用时间过长</h2><p> 花很长时间再互联网或社交媒体，不仅会损害心理健康，还会损害大脑中几个关键区域的灰质和白质，比如额叶。这些区域处理的是更高级的思维。在现代社会，不可能脱离互联网或社交媒体。但需要意识到问题，并控制自己，减少在屏幕前所花费的时间。</p><h2 id="第六，吃太多糖"><a href="#第六，吃太多糖" class="headerlink" title="第六，吃太多糖"></a>第六，吃太多糖</h2><p>吃甜食可能是大脑应对压力的方式之一。但摄入过多的糖会导致体内营养大量失衡，可能进一步扩展到大脑中的营养不良。</p><h2 id="第七，不吃早餐"><a href="#第七，不吃早餐" class="headerlink" title="第七，不吃早餐"></a>第七，不吃早餐</h2><p>当睡觉时，身体大约有8个小时没有进食。为了在一天中保持最佳状态，补充所有晚上失去的能量和营养，是至关重要的。</p><h2 id="第八，运动量少"><a href="#第八，运动量少" class="headerlink" title="第八，运动量少"></a>第八，运动量少</h2><p> 运动可以大大提高大脑功能。运动有助于给大脑充氧，促进生长，促进荷尔蒙分泌。因此，运动量少可能会阻碍大脑发育。并随着时间的推移，会对整体健康产生负面影响。</p><h2 id="第九，不良的睡眠习惯"><a href="#第九，不良的睡眠习惯" class="headerlink" title="第九，不良的睡眠习惯"></a>第九，不良的睡眠习惯</h2><p> 睡眠时间和睡眠方式，会对精力、心理健康以及大脑功能和记忆产生影响。缺失足够的睡眠，会对你的长期记忆产生负面影响，导致大脑以不习惯的方式运作。另外，蒙被睡觉也会对大脑有害，因为会破坏大脑和身体之间的氧气流动。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活娱乐 </category>
+          
+          <category> 杂谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大脑 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>当我们请求网页，计算机都做了什么？</title>
+      <link href="/web-request/"/>
+      <url>/web-request/</url>
+      
+        <content type="html"><![CDATA[<p>        当我们在浏览器中，输入网址<a href="https://chynapple.com/">https://chynapple.com</a>，点击回车就会返回一个完整的页面。我们操作下来非常容易，但计算机都做了哪些工作呢？不懂计算机基础知识的也大概听说过，IP、DNS、路由器、交换机等等，但不知道这些与请求网页的关系到底是怎么样的。出于好奇，在<strong>学堂在线</strong>学习了<strong>网络安全概述</strong>。</p><h2 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h2><p>        新连接的笔记本需要通过DHCP来获取IP地址、本地路由器地址、DNS服务器地址</p><p>        1. DHCP查询信息被封装（encapsulated）在UDP（Best effort Delivery）数据段中，之后被封装在IP数据报中，再被封装在802.1 Ethernet数据帧中</p><p>        2. Ethernet数据帧被广播（broadcast）到整个LAN，从而被正在运行DHCP server的网络设备收到</p><p>        3. Ethernet数据帧被解封（demuxed）IP数据报，被解封到UDP网络数据段，被解封到DHCP信息</p><p>        4. 运行DHCP service的Router，就可以看到application信息。（新机器想要获取IP Address）</p><p>        5. Router生成一个DHCP的ACK Message，其中包含用户的IP地址，本地路由器IP地址，DNS服务器的名字和IP地址。</p><p>        6. 在DHCP服务器进行层层封装（encapsulation）后，数据帧通过LAN被推送到用户端此过程中途径的switch对IP地址对应的端口号进行记录，之后数据帧在用户端层层解封</p><p>        7. DHCP用户收到DHCP ACK。获得了IP地址、DNS的名字和地址、以及本地路由器IP地址。</p><p>        8. 通过DNS的域名服务器找到网址的IP address。有本地路由器的地址就可以进行进一步的数据转发        </p><h3 id="ARP（Address-Resolution-Protocol）"><a href="#ARP（Address-Resolution-Protocol）" class="headerlink" title="ARP（Address Resolution Protocol）"></a>ARP（Address Resolution Protocol）</h3><p>        ARP用在DNS和HTTP之前</p><p>        1. 在发出HTTP request之前，需要知道网址的IP地址：DNS</p><p>        2. DNS查询信息被创建、封装到UDP网络断、IP数据报、和Ethernet数据帧。为使数据帧可以被发送到路由器上，需要查出本地路由器MAC地址: ARP</p><p>        3. ARP query在LAN中广播（broadcast），本地路由器收到后回以ARP reply其中包含路由器相应端口的MAC地址。</p><p>        4. 用户端知道了本地路由器的MAC地址，随即向其发出包含DNS query的数据帧。</p><h3 id="DNS的使用"><a href="#DNS的使用" class="headerlink" title="DNS的使用"></a>DNS的使用</h3><p>        1. 含有DNS query的IP数据报被通过LAN Switch从用户端发送到本地路由器</p><p>        2. 此IP数据报从校园网络被发送到本地ISP（comcast）网络上，从而被路由转发（tables created by RIP, OSPF, IS-IS and/or BGP routing protocols）到响应的DNS server</p><p>        3. 在DNS server上被解封</p><p>        4. DNS server返回网址的IP地址</p><h2 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h2><h3 id="TCP（reliable-data-transfer）"><a href="#TCP（reliable-data-transfer）" class="headerlink" title="TCP（reliable data transfer）"></a>TCP（reliable data transfer）</h3><p>        HTTP必须要用TCP。因为不希望download的主页，有任何形式的错误发生。</p><p>        1. 为发送HTTP request，用户端首先创建一个跟web server之间的TCP socket</p><p>        2. TCP SYN segment（三步握手信息中的第一条信息）通过inter-domain routing被传送到web server上。记录创建状态西信息。</p><p>        3. web server返回一个TCP SYNACK信息（三步握手中的第二步）</p><p>        4. TCP连接创建成功</p><h3 id="HTTP-request-reply"><a href="#HTTP-request-reply" class="headerlink" title="HTTP request/reply"></a>HTTP request/reply</h3><p>        1. HTTP request被推入TCP socket中</p><p>        2. 包含HTTP request的IP数据报被传送（routed）到网址的web server</p><p>        3. web server返回HTTP reply（包含所需主页内容）</p><p>        4. 含有HTTP reply的IP数据报被转发回用户端</p><p>​</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术分享 </category>
+          
+          <category> 网络安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> web request </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>生活记录的开始</title>
       <link href="/main/"/>
       <url>/main/</url>
