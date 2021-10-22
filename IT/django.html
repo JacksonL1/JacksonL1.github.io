@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="生活记录的开始, J-Lock的个人博客">
+    <meta name="keywords" content="标签: web develop,Django,Python, J-Lock的个人博客">
     <meta name="description" content="技术、生活方面的分享与记录">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>生活记录的开始 | J-Lock的个人博客</title>
+    <title>标签: web develop,Django,Python | J-Lock的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon-16x16.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -244,12 +244,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">生活记录的开始</h1>
+                    <h1 class="description center-align post-title">网站开发-Django</h1>
                 </div>
             </div>
         </div>
@@ -363,13 +363,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E6%97%A5%E5%B8%B8/">
-                                <span class="chip bg-color">日常</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -377,8 +373,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%97%A5%E5%B8%B8/" class="post-category">
-                                日常
+                            <a href="/" class="post-category">
+                                
+                            </a>
+                        
+                            <a href="/" class="post-category">
+                                
                             </a>
                         
                     </div>
@@ -390,7 +390,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-16
+                    2021-10-21
                 </div>
                 
 
@@ -414,11 +414,37 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>最近发现记忆力越来越差，看过的电影，忘了剧情；学过的知识，记得部分；认识的朋友，叫不上名；美好的瞬间，忘记细节。</p>
-<p>因此，想要通过博客来记录生活。</p>
-<p>记录会分为两大类</p>
-<h2 id="技术分享"><a href="#技术分享" class="headerlink" title="技术分享"></a>技术分享</h2><h3 id="计算机基础、人工智能、摄影"><a href="#计算机基础、人工智能、摄影" class="headerlink" title="计算机基础、人工智能、摄影"></a>计算机基础、人工智能、摄影</h3><p>最近学习的内容分为以上三类，会不定期更新，所学的内容</p>
-<h2 id="生活娱乐"><a href="#生活娱乐" class="headerlink" title="生活娱乐"></a>生活娱乐</h2><h3 id="影视剧-演出、旅游、美食"><a href="#影视剧-演出、旅游、美食" class="headerlink" title="影视剧/演出、旅游、美食"></a>影视剧/演出、旅游、美食</h3><p>近期看的比较好的影视剧/演出，游记，以及吃过的比较好吃的美食</p>
+                <p>  上周研究了如何用Hexo+Github来部署个人网页。看了一下Hexo的官方文档之后，还是无法做进一步的工作。不知道是否可以连接数据库，做动态页面等。<br>  首页的日期也无法动态更改。考虑过后，决定入另外一个坑-Django。毕竟之前用Python也做过一些开发，相对Java的Spring框架上手会容易一些。</p>
+<h2 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h2><p>  作为一个Python的Web框架，Django需要Python。由于Python包含SQLite轻量级数据库。暂时就先不安装MySql了。<br>  可以通过<a target="_blank" rel="noopener" href="https://www.anaconda.com/products/individual#Downloads">Anaconda</a> 来安装Python。好处是可以创建不同的虚拟环境，来管理不同版本的Python及第三方库等。</p>
+<h2 id="安装Django"><a href="#安装Django" class="headerlink" title="安装Django"></a>安装Django</h2><h3 id="通过pip安装正式发布版本"><a href="#通过pip安装正式发布版本" class="headerlink" title="通过pip安装正式发布版本"></a>通过pip安装正式发布版本</h3><p>anaconda自带pip，无需额外安装。在anaconda环境中，输入以下命令：</p>
+<pre><code>$ pip install Django
+</code></pre>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>若要验证Django是否能被Python识别，可尝试导入Django：</p>
+<pre><code>import django
+print(django.get_version())
+3.2.8
+</code></pre>
+<p>到此，我们就安装了Django。可以正式使用它来创建自己的网页了！</p>
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>首先，创建一个目录。打开命令行，cd到该目录，执行如下命令：</p>
+<pre><code>django-admin startproject mysite
+</code></pre>
+<p>创建成功后，会出现mysite目录</p>
+<pre><code>mysite/
+    manage.py
+    mysite/
+        __init__.py
+        settings.py
+        urls.py
+        asgi.py
+        wsgi.py
+</code></pre>
+<p>· <strong>manage.py</strong> ：今天刚开始学，感觉很多操作都和这个文件有关。它可以用各种方式管理Django下古墓的命令行工具。<br>· <strong>settings.py</strong> ：Django项目的配置文件<br>· <strong>urls.py</strong> ： URL声明。访问各个页面时配置的URL地址<br>· <strong>asgi.py</strong> ： 运行在ASGI兼容的Web服务器上的入口<br>· <strong>wsgi.py</strong> ： 运行在WSGI兼容的Web服务器上的入口</p>
+<h3 id="创建一个简易web服务器"><a href="#创建一个简易web服务器" class="headerlink" title="创建一个简易web服务器"></a>创建一个简易web服务器</h3><pre><code>python manage.py runserver
+</code></pre>
+<p>执行的输出中会有一些警告信息，时因为没有处理数据库。不过没有关系，没有其他报错信息的话，可以通过<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/">http:/127.0.0.1:8000/</a>来访问web了</p>
+<p><img src="/pictures/first_web_page.PNG" alt="first web page"></p>
+<p>这篇整理了如何安装Python、Django以及如何创建一个简易web服务器，并访问。</p>
+<p>后面就开始做页面了，虽然还是从静态页面开始，只要坚持下去，肯定会收获很大的。</p>
 
                 
             </div>
@@ -445,7 +471,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://chynapple.com/main/">https://chynapple.com/main/</a>
+                    <a href="https://chynapple.com/IT/django">https://chynapple.com/IT/django</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -482,11 +508,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E6%97%A5%E5%B8%B8/">
-                                    <span class="chip bg-color">日常</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -659,13 +681,13 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/main/">
+                <a href="/IT/django">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="生活记录的开始">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="网站开发-Django">
                         
-                        <span class="card-title">生活记录的开始</span>
+                        <span class="card-title">网站开发-Django</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -676,14 +698,18 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-21
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%97%A5%E5%B8%B8/" class="post-category">
-                                    日常
+                            <a href="/" class="post-category">
+                                    
+                                </a>
+                            
+                            <a href="/" class="post-category">
+                                    
                                 </a>
                             
                             
@@ -691,14 +717,6 @@
                     </div>
                 </div>
 
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%97%A5%E5%B8%B8/">
-                        <span class="chip bg-color">日常</span>
-                    </a>
-                    
-                </div>
                 
             </div>
         </div>
@@ -709,13 +727,13 @@
                 本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/main/">
+                <a href="/IT/django">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="生活记录的开始">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="网站开发-Django">
                         
-                        <span class="card-title">生活记录的开始</span>
+                        <span class="card-title">网站开发-Django</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -726,14 +744,18 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-21
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%97%A5%E5%B8%B8/" class="post-category">
-                                    日常
+                            <a href="/" class="post-category">
+                                    
+                                </a>
+                            
+                            <a href="/" class="post-category">
+                                    
                                 </a>
                             
                             
@@ -741,14 +763,6 @@
                     </div>
                 </div>
 
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%97%A5%E5%B8%B8/">
-                        <span class="chip bg-color">日常</span>
-                    </a>
-                    
-                </div>
                 
             </div>
         </div>

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="生活记录的开始, J-Lock的个人博客">
+    <meta name="keywords" content="标签: web request, J-Lock的个人博客">
     <meta name="description" content="技术、生活方面的分享与记录">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>生活记录的开始 | J-Lock的个人博客</title>
+    <title>标签: web request | J-Lock的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon-16x16.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -244,12 +244,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">生活记录的开始</h1>
+                    <h1 class="description center-align post-title">当我们请求网页，计算机都做了什么？</h1>
                 </div>
             </div>
         </div>
@@ -363,13 +363,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E6%97%A5%E5%B8%B8/">
-                                <span class="chip bg-color">日常</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -377,8 +373,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%97%A5%E5%B8%B8/" class="post-category">
-                                日常
+                            <a href="/" class="post-category">
+                                
+                            </a>
+                        
+                            <a href="/" class="post-category">
+                                
                             </a>
                         
                     </div>
@@ -390,7 +390,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-16
+                    2021-10-17
                 </div>
                 
 
@@ -414,11 +414,35 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>最近发现记忆力越来越差，看过的电影，忘了剧情；学过的知识，记得部分；认识的朋友，叫不上名；美好的瞬间，忘记细节。</p>
-<p>因此，想要通过博客来记录生活。</p>
-<p>记录会分为两大类</p>
-<h2 id="技术分享"><a href="#技术分享" class="headerlink" title="技术分享"></a>技术分享</h2><h3 id="计算机基础、人工智能、摄影"><a href="#计算机基础、人工智能、摄影" class="headerlink" title="计算机基础、人工智能、摄影"></a>计算机基础、人工智能、摄影</h3><p>最近学习的内容分为以上三类，会不定期更新，所学的内容</p>
-<h2 id="生活娱乐"><a href="#生活娱乐" class="headerlink" title="生活娱乐"></a>生活娱乐</h2><h3 id="影视剧-演出、旅游、美食"><a href="#影视剧-演出、旅游、美食" class="headerlink" title="影视剧/演出、旅游、美食"></a>影视剧/演出、旅游、美食</h3><p>近期看的比较好的影视剧/演出，游记，以及吃过的比较好吃的美食</p>
+                <p>        当我们在浏览器中，输入网址<a href="https://chynapple.com/">https://chynapple.com</a>，点击回车就会返回一个完整的页面。我们操作下来非常容易，但计算机都做了哪些工作呢？不懂计算机基础知识的也大概听说过，IP、DNS、路由器、交换机等等，但不知道这些与请求网页的关系到底是怎么样的。出于好奇，在<strong>学堂在线</strong>学习了<strong>网络安全概述</strong>。</p>
+<h2 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h2><p>        新连接的笔记本需要通过DHCP来获取IP地址、本地路由器地址、DNS服务器地址</p>
+<p>        1. DHCP查询信息被封装（encapsulated）在UDP（Best effort Delivery）数据段中，之后被封装在IP数据报中，再被封装在802.1 Ethernet数据帧中</p>
+<p>        2. Ethernet数据帧被广播（broadcast）到整个LAN，从而被正在运行DHCP server的网络设备收到</p>
+<p>        3. Ethernet数据帧被解封（demuxed）IP数据报，被解封到UDP网络数据段，被解封到DHCP信息</p>
+<p>        4. 运行DHCP service的Router，就可以看到application信息。（新机器想要获取IP Address）</p>
+<p>        5. Router生成一个DHCP的ACK Message，其中包含用户的IP地址，本地路由器IP地址，DNS服务器的名字和IP地址。</p>
+<p>        6. 在DHCP服务器进行层层封装（encapsulation）后，数据帧通过LAN被推送到用户端此过程中途径的switch对IP地址对应的端口号进行记录，之后数据帧在用户端层层解封</p>
+<p>        7. DHCP用户收到DHCP ACK。获得了IP地址、DNS的名字和地址、以及本地路由器IP地址。</p>
+<p>        8. 通过DNS的域名服务器找到网址的IP address。有本地路由器的地址就可以进行进一步的数据转发        </p>
+<h3 id="ARP（Address-Resolution-Protocol）"><a href="#ARP（Address-Resolution-Protocol）" class="headerlink" title="ARP（Address Resolution Protocol）"></a>ARP（Address Resolution Protocol）</h3><p>        ARP用在DNS和HTTP之前</p>
+<p>        1. 在发出HTTP request之前，需要知道网址的IP地址：DNS</p>
+<p>        2. DNS查询信息被创建、封装到UDP网络断、IP数据报、和Ethernet数据帧。为使数据帧可以被发送到路由器上，需要查出本地路由器MAC地址: ARP</p>
+<p>        3. ARP query在LAN中广播（broadcast），本地路由器收到后回以ARP reply其中包含路由器相应端口的MAC地址。</p>
+<p>        4. 用户端知道了本地路由器的MAC地址，随即向其发出包含DNS query的数据帧。</p>
+<h3 id="DNS的使用"><a href="#DNS的使用" class="headerlink" title="DNS的使用"></a>DNS的使用</h3><p>        1. 含有DNS query的IP数据报被通过LAN Switch从用户端发送到本地路由器</p>
+<p>        2. 此IP数据报从校园网络被发送到本地ISP（comcast）网络上，从而被路由转发（tables created by RIP, OSPF, IS-IS and/or BGP routing protocols）到响应的DNS server</p>
+<p>        3. 在DNS server上被解封</p>
+<p>        4. DNS server返回网址的IP地址</p>
+<h2 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h2><h3 id="TCP（reliable-data-transfer）"><a href="#TCP（reliable-data-transfer）" class="headerlink" title="TCP（reliable data transfer）"></a>TCP（reliable data transfer）</h3><p>        HTTP必须要用TCP。因为不希望download的主页，有任何形式的错误发生。</p>
+<p>        1. 为发送HTTP request，用户端首先创建一个跟web server之间的TCP socket</p>
+<p>        2. TCP SYN segment（三步握手信息中的第一条信息）通过inter-domain routing被传送到web server上。记录创建状态西信息。</p>
+<p>        3. web server返回一个TCP SYNACK信息（三步握手中的第二步）</p>
+<p>        4. TCP连接创建成功</p>
+<h3 id="HTTP-request-reply"><a href="#HTTP-request-reply" class="headerlink" title="HTTP request/reply"></a>HTTP request/reply</h3><p>        1. HTTP request被推入TCP socket中</p>
+<p>        2. 包含HTTP request的IP数据报被传送（routed）到网址的web server</p>
+<p>        3. web server返回HTTP reply（包含所需主页内容）</p>
+<p>        4. 含有HTTP reply的IP数据报被转发回用户端</p>
+<p>​</p>
 
                 
             </div>
@@ -445,7 +469,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://chynapple.com/main/">https://chynapple.com/main/</a>
+                    <a href="https://chynapple.com/IT/web_request">https://chynapple.com/IT/web_request</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -482,11 +506,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E6%97%A5%E5%B8%B8/">
-                                    <span class="chip bg-color">日常</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -659,13 +679,13 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/main/">
+                <a href="/IT/web_request">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="生活记录的开始">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="当我们请求网页，计算机都做了什么？">
                         
-                        <span class="card-title">生活记录的开始</span>
+                        <span class="card-title">当我们请求网页，计算机都做了什么？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -676,14 +696,18 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%97%A5%E5%B8%B8/" class="post-category">
-                                    日常
+                            <a href="/" class="post-category">
+                                    
+                                </a>
+                            
+                            <a href="/" class="post-category">
+                                    
                                 </a>
                             
                             
@@ -691,14 +715,6 @@
                     </div>
                 </div>
 
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%97%A5%E5%B8%B8/">
-                        <span class="chip bg-color">日常</span>
-                    </a>
-                    
-                </div>
                 
             </div>
         </div>
@@ -709,13 +725,13 @@
                 本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/main/">
+                <a href="/IT/web_request">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="生活记录的开始">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="当我们请求网页，计算机都做了什么？">
                         
-                        <span class="card-title">生活记录的开始</span>
+                        <span class="card-title">当我们请求网页，计算机都做了什么？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -726,14 +742,18 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%97%A5%E5%B8%B8/" class="post-category">
-                                    日常
+                            <a href="/" class="post-category">
+                                    
+                                </a>
+                            
+                            <a href="/" class="post-category">
+                                    
                                 </a>
                             
                             
@@ -741,14 +761,6 @@
                     </div>
                 </div>
 
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%97%A5%E5%B8%B8/">
-                        <span class="chip bg-color">日常</span>
-                    </a>
-                    
-                </div>
                 
             </div>
         </div>
