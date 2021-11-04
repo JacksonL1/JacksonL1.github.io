@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Django-first app, J-Lock的个人博客">
+    <meta name="keywords" content="表单的使用, J-Lock的个人博客">
     <meta name="description" content="技术、生活方面的分享与记录">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Django-first app | J-Lock的个人博客</title>
+    <title>表单的使用 | J-Lock的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon-16x16.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -244,12 +244,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Django-first app</h1>
+                    <h1 class="description center-align post-title">表单的使用</h1>
                 </div>
             </div>
         </div>
@@ -402,7 +402,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-23
+                    2021-11-04
                 </div>
                 
 
@@ -426,54 +426,163 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>上一篇<a href="https://chynapple.com/install-django/">《Django-安装及创建项目》</a> 写了如何安装Django以及创建项目。</p>
-<h2 id="创建第一个应用"><a href="#创建第一个应用" class="headerlink" title="创建第一个应用"></a>创建第一个应用</h2><p>这一篇记录一下如何创建项目中的应用。第一个应用当然就是Hello-World了。</p>
-<p>上一篇创建了mysite项目。进入项目后，可以看见manage.py文件。在此执行</p>
-<pre><code>python manage.py startapp polls
-</code></pre>
-<p>执行成功后，会出现polls文件夹，其目录结构为：</p>
-<pre><code>polls/
-    __init__.py
-    admin.py
-    app.py
-    migrations/
-        __init__.py
-    models.py
-    tests.py
-    views.py
-</code></pre>
-<h2 id="创建第一个视图"><a href="#创建第一个视图" class="headerlink" title="创建第一个视图"></a>创建第一个视图</h2><p>修改polls下的views.py文件，来定义展示什么内容</p>
-<pre><code>from django.http import HttpResponse
+                <p>  Hexo框架，做静态页面很容易。但做交互不太方便，至少看了官方文档我是放弃了。所以开始学习Django，交互就必不可免的要用到表单。</p>
+<h2 id="HTML表单"><a href="#HTML表单" class="headerlink" title="HTML表单"></a>HTML表单</h2><p>  HTML中，表单是在</p>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;form&gt;...&lt;&#x2F;form&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-def index(request):
-    return HttpResponse(&quot;Hello World!&quot;)
-</code></pre>
-<p>修改polls下创建urls.py文件</p>
-<pre><code>from django.urls import path
-from . import views
+<p>  中的一些元素。日期选择或复杂的操作空间，一般通过JavaScript，CSS以及HTML中的input元素来实现这些效果。</p>
+<p>  表单必须指定两样东西：</p>
+<ul>
+<li>Where：负责响应用户输入数据的URL地址</li>
+<li>How：数据请求使用的HTTP方法<br>例如：登录用户名type=”text”, 密码用type=”password”，登录按钮type=”submit”。<br>表单数据发往form的action属性指定的URL，并使用method属性指定的HTTP方法–POST.</li>
+</ul>
+<h2 id="Django在表单中的角色"><a href="#Django在表单中的角色" class="headerlink" title="Django在表单中的角色"></a>Django在表单中的角色</h2><p>  Django会处理涉及表单的三个不同部分：</p>
+<ul>
+<li>准备并重组数据，以便下一步的渲染</li>
+<li>为数据创建HTML表单</li>
+<li>接收并处理客户端提交的表单及数据</li>
+</ul>
+<h2 id="Django的Form类"><a href="#Django的Form类" class="headerlink" title="Django的Form类"></a>Django的Form类</h2><p>  类似于模型类的字段映射到数据库字段的方式，表单类的字段会映射到HTML表单的input元素。ModelForm通过Form映射模型类的字段到HTML表单的input元素。<br>  DateField和FileField处理的数据类型差别很大，所以必须用来处理不同的字段。</p>
+<h2 id="实例化、处理和渲染表单"><a href="#实例化、处理和渲染表单" class="headerlink" title="实例化、处理和渲染表单"></a>实例化、处理和渲染表单</h2><p>  在Django中渲染一个对象的时候：</p>
+<ol>
+<li>在视图中获取它（例如从数据库中取出）</li>
+<li>将它传递给模板上下文</li>
+<li>使用模板变量将它扩展为HTML标记</li>
+</ol>
+<p>  当我们实例化表单时，可以选择让它为空或者对它预先填充：</p>
+<ul>
+<li>模型实例中保存的数据（管理编辑表单的情况下）</li>
+<li>从其他来源中获取的数据</li>
+<li>从前面一个HTML表单提交过来的数据</li>
+</ul>
+<h2 id="构建一张表单"><a href="#构建一张表单" class="headerlink" title="构建一张表单"></a>构建一张表单</h2><p>获取用户的名字：</p>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;form action&#x3D;&quot;&#x2F;your-name&#x2F;&quot; method&#x3D;&quot;post&quot;&gt;
+	&lt;label for&#x3D;&quot;your_name&quot;&gt;Your name: &lt;&#x2F;label&gt;
+	&lt;input id&#x3D;&quot;your_name&quot; type&#x3D;&quot;text&quot; name&#x3D;&quot;your_name&quot; value&#x3D;&quot;&#123;&#123; current_name &#125;&#125;&quot;&gt;
+	&lt;input type&#x3D;&quot;submit&quot; value&#x3D;&quot;OK&quot;&gt;
+&lt;&#x2F;form&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-urlpatterns = [ path(&#39;&#39;, views.index, name=&#39;index&#39;),] # 网页的二级路由
-</code></pre>
-<p>修改mysite下的urls.py。 输入网址的时候，<a target="_blank" rel="noopener" href="http://www.chynapple.com,会返回主页.想直接跳转到标签页,我们就需要输入www.chynapple.com/tags">www.chynapple.com，会返回主页。想直接跳转到标签页，我们就需要输入www.chynapple.com/tags</a><br>这里/tags就是我们在urlpatterns中设定的path。</p>
-<pre><code>from django.contrib import admin
-from django.urls import include, path
+<p>表单数据返回给URL： /your-name/ ， 使用POST方法。<br>submit中的value可设置按钮的名称。<br>current_name变量，会被填充到your_name字段</p>
+<p>提交表单还需要一个与/your-name/ URL 相对应的视图，该视图将在请求中找到响应的键/值对，然后对其进行处理。</p>
+<h3 id="Django中构建一张表单"><a href="#Django中构建一张表单" class="headerlink" title="Django中构建一张表单"></a>Django中构建一张表单</h3><p><em>Form类</em></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> django <span class="token keyword">import</span> forms
 
-urlpatterns = [
-    path(&#39;polls/&#39;, include(&#39;polls.urls&#39;)),  # 添加polls url
-    path(&#39;admin/&#39;, admin.site.urls),
-]
-</code></pre>
-<p><strong>path()参数：route</strong><br>&nbsp;&nbsp;&nbsp;&nbsp; route是一个匹配URL的准则。当获取一个请求时，route会从urlpatterns的第一项开始，按顺序一次匹配，直到找到匹配项。<br>&nbsp;&nbsp;&nbsp;&nbsp; 函数include()允许引用其他URLconfs。</p>
-<p><strong>path()参数：view</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; 当找到匹配准则，会调用这个特定的视图函数，传入一个HTTPRequest对象作为第一个参数，被“捕获”的参数以关键字参数的形式传入。（没读懂）</p>
-<p><strong>path()参数：kwargs</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; 任意关键字参数</p>
-<p><strong>path()参数：name</strong><br>&nbsp;&nbsp;&nbsp;&nbsp; 为URL取名，方便在其他地方应用它。</p>
-<p>让我们通过以下命令验证是否正常工作：</p>
-<pre><code>python manage.py runserver
-</code></pre>
-<p>在浏览器中访问<a target="_blank" rel="noopener" href="http://localhost:8000/polls/">http://localhost:8000/polls/</a></p>
-<p>要注意的是url后面需要加polls。否则可能会返回404页面。<br>如果一切正常，页面中会显示<font color='blue'>Hello World!</font></p>
+<span class="token keyword">class</span> <span class="token class-name">NameForm</span><span class="token punctuation">(</span>forms<span class="token punctuation">.</span>Form<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	your_name <span class="token operator">=</span> forms<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'Your name'</span><span class="token punctuation">,</span> max_length<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  定义一个包含一个字段your_name的form类。max_length，在浏览器限制用户输入字符串数量；对传回来的表单，进行长度验证。</p>
+<p>  渲染时，会显示如下：</p>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;label for&#x3D;&quot;your_name&quot;&gt;Your name: &lt;&#x2F;label&gt;
+&lt;input id&#x3D;&quot;your_name&quot; type&#x3D;&quot;text&quot; name&#x3D;&quot;your_name&quot; maxlength&#x3D;&quot;100&quot; required&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>  没有包含form标签和提交按钮，需要在模板中提供。</p>
+<h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>  发回Django网站的表单数据由视图来处理，一般和发布这个表单用的是同一个视图。<br>  为了处理表单，需要将它实例化到希望发布的URL对应的视图中：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>http <span class="token keyword">import</span> HttpResponseRedirect
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>shortcuts <span class="token keyword">import</span> render
+
+<span class="token keyword">from</span> <span class="token punctuation">.</span>forms <span class="token keyword">import</span> NameForm
+
+<span class="token keyword">def</span> <span class="token function">get_name</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token comment"># 如果是POST请求，需要处理表单数据</span>
+	<span class="token keyword">if</span> request<span class="token punctuation">.</span>method <span class="token operator">==</span> <span class="token string">'POST'</span><span class="token punctuation">:</span>
+		<span class="token comment"># 创建表单实例，处理请求数据</span>
+		form <span class="token operator">=</span> NameForm<span class="token punctuation">(</span>request<span class="token punctuation">.</span>POST<span class="token punctuation">)</span>
+		<span class="token comment"># 验证表单数据</span>
+		<span class="token keyword">if</span> form<span class="token punctuation">.</span>is_valid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			<span class="token comment"># 处理数据</span>
+			<span class="token comment"># ...</span>
+			<span class="token comment"># 重定向至新的URL</span>
+			<span class="token keyword">return</span> HttpResponseRedirect<span class="token punctuation">(</span><span class="token string">'/thanks/'</span><span class="token punctuation">)</span>
+
+	<span class="token comment"># 如果是Get或其他请求，创建一个空的表单</span>
+	<span class="token keyword">else</span><span class="token punctuation">:</span>
+		form <span class="token operator">=</span> NameForm<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">return</span> render<span class="token punctuation">(</span>request<span class="token punctuation">,</span> <span class="token string">'name.html'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'form'</span><span class="token punctuation">:</span> form<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  is_valid为False,带着表单返回到模板。HTML表单将用之前提交的数据进行填充，放到可以根据需要进行编辑和修正的位置<br>  is_valid为True，在cleaned_data属性中找到所有通过验证的表单数据。</p>
+<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML"> *name.html*
+
+&lt;form action&#x3D;&quot;&#x2F;your-name&#x2F;&quot; method&#x3D;&quot;post&quot;&gt;
+	&#123;% csrf_token %&#125;
+	&#123;&#123; form &#125;&#125;
+	&lt;input type&#x3D;&quot;submit&quot; value&#x3D;&quot;Submit&quot;&gt;
+&lt;&#x2F;form&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="详解Django-Form类"><a href="#详解Django-Form类" class="headerlink" title="详解Django Form类"></a>详解Django Form类</h2><p>  实际上，如果表单是要直接用来添加或编辑Django模型，用ModelForm会更方便。因为它会根据Model类构建一张对应字段及其属性的表单。</p>
+<h3 id="绑定与未绑定的表单实例"><a href="#绑定与未绑定的表单实例" class="headerlink" title="绑定与未绑定的表单实例"></a>绑定与未绑定的表单实例</h3><p>  区别：</p>
+<ul>
+<li>未绑定的表单，没有与其关联的数据。渲染后，是空的或包含默认值</li>
+<li>绑定的表单，拥有已提交的数据，可用来判断数据是否合法。<br>is_bound属性将返回是否具有绑定的数据</li>
+</ul>
+<h3 id="字段详解"><a href="#字段详解" class="headerlink" title="字段详解"></a>字段详解</h3><p>  <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/zh-hans/3.2/ref/forms/fields/">完整表单字段详解</a></p>
+<h3 id="控件"><a href="#控件" class="headerlink" title="控件"></a>控件</h3><p>  每个表单字段狗友相对应的控件类，控件类又有对应的HTML表单空间，如：</p>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;inpput type&#x3D;&quot;text&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  默认情况下，CharField有个TextInput空间，会在HTML中生成一个</p>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;input type&#x3D;&quot;text&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="字段数据"><a href="#字段数据" class="headerlink" title="字段数据"></a>字段数据</h3><p>  一旦通过调用is_valid()验证成功，已验证的表单数据将被放到form.cleaned_data字典中。<br>  IntegerField和FloatField的值分别会被转化为python的int和float类型。<br>  使用表单上传文件要以不同的方式处理（可以从request.FILES获取，而不是request.POST中）。</p>
+<h2 id="使用表单模板"><a href="#使用表单模板" class="headerlink" title="使用表单模板"></a>使用表单模板</h2><h3 id="表单渲染选项"><a href="#表单渲染选项" class="headerlink" title="表单渲染选项"></a>表单渲染选项</h3><ul>
+<li> 渲染为table单元，标签为tr</li>
+<li> 标签为p</li>
+<li> 标签为li
+需要自己提供外层的table或ul元素。</li>
+</ul>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;p&gt;&lt;label for&#x3D;&quot;id_subject&quot;&gt;Subject:&lt;&#x2F;label&gt;
+	&lt;input id&#x3D;&quot;id_subject&quot; type&#x3D;&quot;text&quot; name&#x3D;&quot;subject&quot; maxlength&#x3D;&quot;100&quot; required&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;label for&#x3D;&quot;id_message&quot;&gt;Message:&lt;&#x2F;label&gt;
+	&lt;textarea name&#x3D;&quot;message&quot; id&#x3D;&quot;id_message&quot; required&gt;&lt;&#x2F;textarea&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;label for&#x3D;&quot;id_sender&quot;&gt;Sender:&lt;&#x2F;label&gt;
+	&lt;input type&#x3D;&quot;email&quot; name&#x3D;&quot;sender&quot; id&#x3D;&quot;id_sender&quot; required&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;label for&#x3D;&quot;id_cc_myself&quot;&gt;Cc myself:&lt;&#x2F;label&gt;
+	&lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;cc_myself&quot; id&#x3D;&quot;id_cc_myself&quot;&gt;&lt;&#x2F;p&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="遍历表单字段"><a href="#遍历表单字段" class="headerlink" title="遍历表单字段"></a>遍历表单字段</h3><p>  如果给每个表单字段使用相同的HTML，可以用for依次循环遍历每个字段来减少重复代码：</p>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&#123;% for field in form %&#125;
+	&lt;div class&#x3D;&quot;fieldWrapper&quot;&gt;
+		&#123;&#123; field.errors &#125;&#125;
+		&#123;&#123; field.label_tag &#125;&#125; &#123;&#123; field &#125;&#125;
+		&#123;% if field.help_text %&#125;
+		&lt;p class&#x3D;&quot;help&quot;&gt;&#123;&#123; field.help_text|safe &#125;&#125;&lt;&#x2F;p&gt;
+		&#123;% endif %&#125;
+	&lt;&#x2F;div&gt;
+&#123;% endfor %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><em>field.label_tag</em></p>
+<p>  该字段的label封装在相应的HTML的label标签中。包含表单的label_suffix。例如，默认的label_suffix是一个冒号：</p>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;label for&#x3D;&quot;id_email&quot;&gt;Email address:&lt;&#x2F;label&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><em>field.id_for_label</em><br>  用于该字段的ID。如果要手动构建label，可能要用此字段来替换label_tag</p>
+<p><em>field.value</em><br>  字段的值</p>
+<p><em>field.html_name</em><br>  字段名称</p>
+<p><em>field.help_text</em><br>  帮助文本</p>
+<p><em>field.errors</em><br>  输出一个</p>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;ul class&#x3D;&quot;errorlist&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>  其中包含这个字段的所有验证错误信息。可以用</p>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&#123;% for error in field.errors %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  循环来自定义错误信息的显示。</p>
+<p><em>field.is_hidden</em></p>
+<p>  如果是隐藏字段，属性为True，否则为False.</p>
+<p><em>field.field</em></p>
+<p>  看用来访问Field的属性，如</p>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&#123;&#123; char_field.field.max_length &#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="可复用的表单模板"><a href="#可复用的表单模板" class="headerlink" title="可复用的表单模板"></a>可复用的表单模板</h3><p>  如果在多个位置对表单使用相同的渲染逻辑，可以通过将表单的循环保存到独立的模板中，然后在其他模板中使用include标签来减少代码重复。</p>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML"># In your form template:
+&#123;% include &quot;form_snippet.html&quot; %&#125;
+
+# In form_snippet.html:
+&#123;% for field in form %&#125;
+	&lt;div class&#x3D;&quot;fieldWrapper&quot;&gt;
+		&#123;&#123; field.errors &#125;&#125;
+		&#123;&#123; field.label_tag &#125;&#125; &#123;&#123; field &#125;&#125;
+	&lt;&#x2F;div&gt;
+&#123;% endfor %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  如果传递给模板的表单对象在上下文中具有不同的名称，可以使用include标签的with属性来给它取别名。</p>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&#123;% include &quot;form_snippet.html&quot; with form&#x3D;comment_form %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
 <p><strong>参考</strong><br><a target="_blank" rel="noopener" href="https://docs.djangoproject.com/zh-hans/3.2/intro/">Django官方文档</a> </p>
 
                 
@@ -501,7 +610,7 @@ urlpatterns = [
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://chynapple.com/django/first-app/">https://chynapple.com/django/first-app/</a>
+                    <a href="https://chynapple.com/django/working-with-form/">https://chynapple.com/django/working-with-form/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -981,17 +1090,18 @@ urlpatterns = [
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/django/manage-site/">
+                <a href="/django/working-with-form/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Django自动生成的管理页面">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="表单的使用">
                         
-                        <span class="card-title">Django自动生成的管理页面</span>
+                        <span class="card-title">表单的使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1001,9 +1111,9 @@ urlpatterns = [
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1020,6 +1130,7 @@ urlpatterns = [
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1046,13 +1157,13 @@ urlpatterns = [
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/django/install-django/">
+                <a href="/django/manage-site/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Django-安装及创建项目">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Django自动生成的管理页面">
                         
-                        <span class="card-title">Django-安装及创建项目</span>
+                        <span class="card-title">Django自动生成的管理页面</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1063,7 +1174,7 @@ urlpatterns = [
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-24
                             </span>
                         <span class="publish-author">
                             
