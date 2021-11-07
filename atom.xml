@@ -6,7 +6,7 @@
   <link href="https://chynapple.com/atom.xml" rel="self"/>
   
   <link href="https://chynapple.com/"/>
-  <updated>2021-11-04T09:46:52.491Z</updated>
+  <updated>2021-11-07T06:15:08.192Z</updated>
   <id>https://chynapple.com/</id>
   
   <author>
@@ -17,11 +17,67 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Web网站介绍</title>
+    <link href="https://chynapple.com/django/dong-tai-wang-zhan-jie-shao/"/>
+    <id>https://chynapple.com/django/dong-tai-wang-zhan-jie-shao/</id>
+    <published>2021-11-05T11:58:24.000Z</published>
+    <updated>2021-11-07T06:15:08.192Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;网站的功能性从“静态内容”的展示转向“动态内容”的传递。动态与静态最基本的区分方法，通常是判断是否采用了数据库的开发模式。&lt;/li&gt;
+&lt;li&gt;动态网站以数据库技术为基础，可大大降低网站维护工作量，可实现用户注册、登录、在线调查、用户管理、订单管理等等&lt;/li&gt;
+</summary>
+        
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://chynapple.com/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    <category term="网站开发" scheme="https://chynapple.com/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="web develop" scheme="https://chynapple.com/tags/web-develop/"/>
+    
+    <category term="Django" scheme="https://chynapple.com/tags/Django/"/>
+    
+    <category term="Python" scheme="https://chynapple.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ModelForm</title>
+    <link href="https://chynapple.com/django/modelform/"/>
+    <id>https://chynapple.com/django/modelform/</id>
+    <published>2021-11-05T02:58:24.000Z</published>
+    <updated>2021-11-07T06:15:08.179Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;如果想创建一个让用户提交评论的表单，在表单中定义字段类型是多余的，因为在模型中已经定义了字段。&lt;br&gt;因此，Django提供了一个辅助类让你可以从一个Django模型创建一个Form类。&lt;/p&gt;
+&lt;h2 id=&quot;ModelForm&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>表单的使用</title>
     <link href="https://chynapple.com/django/working-with-form/"/>
     <id>https://chynapple.com/django/working-with-form/</id>
     <published>2021-11-04T11:04:28.000Z</published>
-    <updated>2021-11-04T09:46:52.491Z</updated>
+    <updated>2021-11-07T06:15:08.190Z</updated>
     
     
       
@@ -53,7 +109,7 @@
     <link href="https://chynapple.com/django/manage-site/"/>
     <id>https://chynapple.com/django/manage-site/</id>
     <published>2021-10-24T12:03:15.000Z</published>
-    <updated>2021-10-25T07:03:56.848Z</updated>
+    <updated>2021-11-07T06:15:08.187Z</updated>
     
     
       
@@ -84,7 +140,7 @@
     <link href="https://chynapple.com/django/first-app/"/>
     <id>https://chynapple.com/django/first-app/</id>
     <published>2021-10-23T06:50:14.000Z</published>
-    <updated>2021-11-01T06:35:29.276Z</updated>
+    <updated>2021-11-07T06:15:08.182Z</updated>
     
     
       
@@ -116,7 +172,7 @@
     <link href="https://chynapple.com/django/install-django/"/>
     <id>https://chynapple.com/django/install-django/</id>
     <published>2021-10-21T15:04:28.000Z</published>
-    <updated>2021-10-25T07:03:56.848Z</updated>
+    <updated>2021-11-07T06:15:08.184Z</updated>
     
     
       
@@ -147,7 +203,7 @@
     <link href="https://chynapple.com/life/brain-health/"/>
     <id>https://chynapple.com/life/brain-health/</id>
     <published>2021-10-19T07:19:00.000Z</published>
-    <updated>2021-10-25T07:03:56.851Z</updated>
+    <updated>2021-10-21T15:03:20.707Z</updated>
     
     
       
@@ -175,7 +231,7 @@
     <link href="https://chynapple.com/websecurity/web-request/"/>
     <id>https://chynapple.com/websecurity/web-request/</id>
     <published>2021-10-17T11:31:00.000Z</published>
-    <updated>2021-10-25T07:03:56.850Z</updated>
+    <updated>2021-10-21T15:03:20.707Z</updated>
     
     
       
@@ -202,7 +258,7 @@
     <link href="https://chynapple.com/life/first-page/"/>
     <id>https://chynapple.com/life/first-page/</id>
     <published>2021-10-16T11:24:00.000Z</published>
-    <updated>2021-10-25T07:03:56.852Z</updated>
+    <updated>2021-10-21T15:03:20.707Z</updated>
     
     
       

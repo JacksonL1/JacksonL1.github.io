@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Django-first app, J-Lock的个人博客">
+    <meta name="keywords" content="ModelForm, J-Lock的个人博客">
     <meta name="description" content="技术、生活方面的分享与记录">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Django-first app | J-Lock的个人博客</title>
+    <title>ModelForm | J-Lock的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon-16x16.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -244,12 +244,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Django-first app</h1>
+                    <h1 class="description center-align post-title">ModelForm</h1>
                 </div>
             </div>
         </div>
@@ -363,37 +363,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/web-develop/">
-                                <span class="chip bg-color">web develop</span>
-                            </a>
-                        
-                            <a href="/tags/Django/">
-                                <span class="chip bg-color">Django</span>
-                            </a>
-                        
-                            <a href="/tags/Python/">
-                                <span class="chip bg-color">Python</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" class="post-category">
-                                技术分享
-                            </a>
-                        
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/" class="post-category">
-                                网站开发
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -402,7 +377,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-23
+                    2021-11-05
                 </div>
                 
 
@@ -426,56 +401,151 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>上一篇<a href="https://chynapple.com/install-django/">《Django-安装及创建项目》</a> 写了如何安装Django以及创建项目。</p>
-<h2 id="创建第一个应用"><a href="#创建第一个应用" class="headerlink" title="创建第一个应用"></a>创建第一个应用</h2><p>这一篇记录一下如何创建项目中的应用。第一个应用当然就是Hello-World了。</p>
-<p>上一篇创建了mysite项目。进入项目后，可以看见manage.py文件。在此执行</p>
-<pre><code>python manage.py startapp polls
-</code></pre>
-<p>执行成功后，会出现polls文件夹，其目录结构为：</p>
-<pre class="line-numbers language-none"><code class="language-none">polls&#x2F;
-	__init__.py
-	admin.py
-	app.py
-	migrations&#x2F;
-		__init__.py
-	models.py
-	tests.py
-	views.py<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <p>如果想创建一个让用户提交评论的表单，在表单中定义字段类型是多余的，因为在模型中已经定义了字段。<br>因此，Django提供了一个辅助类让你可以从一个Django模型创建一个Form类。</p>
+<h2 id="ModelForm"><a href="#ModelForm" class="headerlink" title="ModelForm"></a>ModelForm</h2><pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">
+from django.forms import ModelForm
+from myapp.models import Article
 
-<h2 id="创建第一个视图"><a href="#创建第一个视图" class="headerlink" title="创建第一个视图"></a>创建第一个视图</h2><p>修改polls下的views.py文件，来定义展示什么内容</p>
-<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">from django.http import HttpResponse
+class ArticleForm(ModelForm):
+	class Meta:
+		model &#x3D; Article
+		fields &#x3D; [&#39;pub_date&#39;, &#39;headline&#39;, &#39;content&#39;, &#39;reporter&#39;]
 
-def index(request):
-	return HttpResponse(&quot;Hello World!&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+# Creating a form to add an article.
+form &#x3D; ArticleForm()
 
-<p>修改polls下创建urls.py文件</p>
-<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">from django.urls import path
-from . import views
+# Creating a form to change an existing article.
+article &#x3D; Article.objects.get(pk&#x3D;1)
+form &#x3D; ArticleForm(instance&#x3D;article)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-urlpatterns &#x3D; [ path(&#39;&#39;, views.index, name&#x3D;&#39;index&#39;),] # 网页的二级路由<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>举个例子：</p>
+<pre class="line-numbers language-Pyhton" data-language="Pyhton"><code class="language-Pyhton">from django.db import models
+from django.forms import ModelForm
 
-<p>修改mysite下的urls.py。 输入网址的时候，<a target="_blank" rel="noopener" href="http://www.chynapple.com,会返回主页.想直接跳转到标签页,我们就需要输入www.chynapple.com/tags">www.chynapple.com，会返回主页。想直接跳转到标签页，我们就需要输入www.chynapple.com/tags</a><br>这里/tags就是我们在urlpatterns中设定的path。</p>
-<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">from django.contrib import admin
-from django.urls import include, path
+TITLE_CHOICES &#x3D; [
+    (&#39;MR&#39;, &#39;Mr.&#39;),
+    (&#39;MRS&#39;, &#39;Mrs.&#39;),
+    (&#39;MS&#39;, &#39;Ms.&#39;),
+]
 
-urlpatterns &#x3D; [
-	path(&#39;polls&#x2F;&#39;, include(&#39;polls.urls&#39;)),  # 添加polls url
-	path(&#39;admin&#x2F;&#39;, admin.site.urls),
-]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+class Author(models.Model):
+    name &#x3D; models.CharField(max_length&#x3D;100)
+    title &#x3D; models.CharField(max_length&#x3D;3, choices&#x3D;TITLE_CHOICES)
+    birth_date &#x3D; models.DateField(blank&#x3D;True, null&#x3D;True)
 
-<p><strong>path()参数：route</strong><br>&nbsp;&nbsp;&nbsp;&nbsp; route是一个匹配URL的准则。当获取一个请求时，route会从urlpatterns的第一项开始，按顺序一次匹配，直到找到匹配项。<br>&nbsp;&nbsp;&nbsp;&nbsp; 函数include()允许引用其他URLconfs。</p>
-<p><strong>path()参数：view</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; 当找到匹配准则，会调用这个特定的视图函数，传入一个HTTPRequest对象作为第一个参数，被“捕获”的参数以关键字参数的形式传入。（没读懂）</p>
-<p><strong>path()参数：kwargs</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; 任意关键字参数</p>
-<p><strong>path()参数：name</strong><br>&nbsp;&nbsp;&nbsp;&nbsp; 为URL取名，方便在其他地方应用它。</p>
-<p>让我们通过以下命令验证是否正常工作：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">python manage.py runserver<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+    def __str__(self):
+        return self.name
 
-<p>在浏览器中访问<a target="_blank" rel="noopener" href="http://localhost:8000/polls/">http://localhost:8000/polls/</a></p>
-<p>要注意的是url后面需要加polls。否则可能会返回404页面。<br>如果一切正常，页面中会显示<font color='blue'>Hello World!</font></p>
-<p><strong>参考</strong><br><a target="_blank" rel="noopener" href="https://docs.djangoproject.com/zh-hans/3.2/intro/">Django官方文档</a> </p>
+class Book(models.Model):
+    name &#x3D; models.CharField(max_length&#x3D;100)
+    authors &#x3D; models.ManyToManyField(Author)
 
+class AuthorForm(ModelForm):
+    class Meta:
+        model &#x3D; Author
+        fields &#x3D; [&#39;name&#39;, &#39;title&#39;, &#39;birth_date&#39;]
+
+class BookForm(ModelForm):
+    class Meta:
+        model &#x3D; Book
+        fields &#x3D; [&#39;name&#39;, &#39;authors&#39;]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其中AuthorForm和BookForm等同于：</p>
+<pre class="line-numbers language-Pyrhon" data-language="Pyrhon"><code class="language-Pyrhon">from django import forms
+
+class AuthorForm(forms.Form):
+    name &#x3D; forms.CharField(max_length&#x3D;100)
+    title &#x3D; forms.CharField(
+        max_length&#x3D;3,
+        widget&#x3D;forms.Select(choices&#x3D;TITLE_CHOICES),
+    )
+    birth_date &#x3D; forms.DateField(required&#x3D;False)
+
+class BookForm(forms.Form):
+    name &#x3D; forms.CharField(max_length&#x3D;100)
+    authors &#x3D; forms.ModelMultipleChoiceField(queryset&#x3D;Author.objects.all())<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="验证ModelForm"><a href="#验证ModelForm" class="headerlink" title="验证ModelForm"></a>验证ModelForm</h2><ol>
+<li>验证表单</li>
+<li>验证模型实例</li>
+</ol>
+<p>模型表单验证调用is_valid()或访问errors属性时隐式触发。</p>
+<h3 id="error-messages的注意事项"><a href="#error-messages的注意事项" class="headerlink" title="error_messages的注意事项"></a>error_messages的注意事项</h3><p>在表单字段级别或者表单Meta级别定义的错误信息优先级总是高于在模型字段级别定义的。</p>
+<p>在模型字段上定义的错误信息只有在模型验证步骤引发ValidationError时才会使用，并且没有在表单级定义响应的错误信息。</p>
+<p>可以通过添加NON_FIELD_ERRORS键到ModelForm内部的Meta类的error_messages中来覆盖模型验证引发的NON_FIELD_ERRORS错误信息</p>
+<pre class="line-numbers language-Pyhton" data-language="Pyhton"><code class="language-Pyhton">from django.core.exceptions import NON_FIELD_ERRORS
+from django.forms import ModelForm
+
+class ArticleForm(ModelForm):
+    class Meta:
+        error_messages &#x3D; &#123;
+            NON_FIELD_ERRORS: &#123;
+                &#39;unique_together&#39;: &quot;%(model_name)s&#39;s %(field_labels)s are not unique.&quot;,
+            &#125;
+        &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="save-方法"><a href="#save-方法" class="headerlink" title="save()方法"></a>save()方法</h3><p>根据绑定到表单的数据创建并保存数据库对象。<br>ModelFOrm的子类可接收一个现有的模型实例作为关键字参数instance；如果提供了，save()会更新这个实例。如果没有，save()会创建一个新实例</p>
+<pre class="line-numbers language-Pyhton" data-language="Pyhton"><code class="language-Pyhton">from myapp.models import Article
+from myapp.forms import ArticleForm
+
+# Create a form instance from POST data.
+f &#x3D; ArticleForm(request.POST)
+
+# Save a new Article object from the form&#39;s data.
+new_article &#x3D; f.save()
+
+# Create a form to edit an existing Article, but use
+# POST data to populate the form.
+a &#x3D; Article.objects.get(pk&#x3D;1)
+f &#x3D; ArticleForm(request.POST, instance&#x3D;a)
+f.save()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>save()方法接收一个可选参数commit，值为Boolean。如果调用save()的时候使用commit=False，那么它会返回一个尚未保存到数据库的对象。<br>在这种情况下，需要您自己在生成的模型实力上调用save()。如果要在保存对象之前对对象执行自定义操作，或者要使用其中一个专用的模型保存选项，此方法就很有用。</p>
+<p>如果模型具有多对多关系，并且在保存表单时制定了commit=False，Django无法立即保存多对多关系的表单数据。这是因为实例的多对多数据只有实例在数据库中存在时才能保存。</p>
+<p>要解决这个问题，Django会在每次使用commit=False保存表单时，向ModelForm子类添加一个save_m2m()方法。在您手动保存表单生成的实例后，可以调用save_m2m()来保存多对多的表单数据。</p>
+<pre class="line-numbers language-Pyrhon" data-language="Pyrhon"><code class="language-Pyrhon"># Create a form instance with POST data.
+f &#x3D; AuthorForm(request.POST)
+
+# Create, but don&#39;t save the new author instance.
+new_author &#x3D; f.save(commit&#x3D;False)
+
+# Modify the author in some way.
+new_author.some_field &#x3D; &#39;some_value&#39;
+
+# Save the new instance.
+new_author.save()
+
+# Now, save the many-to-many data for the form.
+f.save_m2m()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>只有在使用save(commit=False)的时候才需要调用save_m2m()。 当您在表单上使用save()时，无需调用其他方法，所有数据都会被保存。</p>
+<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">a &#x3D; Author()
+f &#x3D; AuthorForm(request.POST, instance&#x3D;a)
+new_author &#x3D; f.save()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="选择要使用的字段"><a href="#选择要使用的字段" class="headerlink" title="选择要使用的字段"></a>选择要使用的字段</h3><p>强烈建议使用fields属性来显式设置所有应在表单中编辑的字段。如果不这样做，当一张表单不慎允许用户设置某些字段，尤其是在将新字段添加到模型中时，很容易导致安全问题。根据表单渲染方式的不同，甚至可能不会在网页上现实问题。</p>
+<p>有两种简单的方法保证不会出现安全问题：</p>
+<ol>
+<li>将fields属性设置为特殊值’<strong>all</strong>‘以表明需要使用模型中的所有字段。如：</li>
+</ol>
+<pre class="line-numbers language-Pyhton" data-language="Pyhton"><code class="language-Pyhton">from django.forms import ModelForm
+
+class AuthorForm(ModelForm):
+    class Meta:
+        model &#x3D; Author
+        fields &#x3D; &#39;__all__&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="2">
+<li>将ModelForm中Meta类的exclude属性设置为表单中需要排除的字段列表。如：</li>
+</ol>
+<pre class="line-numbers language-Pyhton" data-language="Pyhton"><code class="language-Pyhton">class PartialAuthorForm(ModelForm):
+    class Meta:
+        model &#x3D; Author
+        exclude &#x3D; [&#39;title&#39;]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>由于Author模型有三个字段name、title和birth_date，上例的结果时字段name和birth_date会呈现在表单中。</p>
+<p>另外，Django有个规则：如果在模型字段中定义了editable=False，任何使用ModelForm创建的表单都不会包含field。</p>
+<h3 id="覆盖默认字段"><a href="#覆盖默认字段" class="headerlink" title="覆盖默认字段"></a>覆盖默认字段</h3>
                 
             </div>
             <hr/>
@@ -501,7 +571,7 @@ urlpatterns &#x3D; [
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://chynapple.com/django/first-app/">https://chynapple.com/django/first-app/</a>
+                    <a href="https://chynapple.com/django/modelform/">https://chynapple.com/django/modelform/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -538,19 +608,7 @@ urlpatterns &#x3D; [
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/web-develop/">
-                                    <span class="chip bg-color">web develop</span>
-                                </a>
-                            
-                                <a href="/tags/Django/">
-                                    <span class="chip bg-color">Django</span>
-                                </a>
-                            
-                                <a href="/tags/Python/">
-                                    <span class="chip bg-color">Python</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -985,13 +1043,13 @@ urlpatterns &#x3D; [
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/django/manage-site/">
+                <a href="/django/dong-tai-wang-zhan-jie-shao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Django自动生成的管理页面">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Web网站介绍">
                         
-                        <span class="card-title">Django自动生成的管理页面</span>
+                        <span class="card-title">Web网站介绍</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1002,7 +1060,7 @@ urlpatterns &#x3D; [
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-24
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-05
                         </span>
                         <span class="publish-author">
                             
@@ -1046,13 +1104,13 @@ urlpatterns &#x3D; [
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/django/install-django/">
+                <a href="/django/working-with-form/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Django-安装及创建项目">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="表单的使用">
                         
-                        <span class="card-title">Django-安装及创建项目</span>
+                        <span class="card-title">表单的使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1063,7 +1121,7 @@ urlpatterns &#x3D; [
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-04
                             </span>
                         <span class="publish-author">
                             

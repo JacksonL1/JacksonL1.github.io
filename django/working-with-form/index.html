@@ -548,22 +548,22 @@
 	&lt;&#x2F;div&gt;
 &#123;% endfor %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><em>field.label_tag</em></p>
+<p><strong>field.label_tag</strong></p>
 <p>  该字段的label封装在相应的HTML的label标签中。包含表单的label_suffix。例如，默认的label_suffix是一个冒号：</p>
 <pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;label for&#x3D;&quot;id_email&quot;&gt;Email address:&lt;&#x2F;label&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><em>field.id_for_label</em><br>  用于该字段的ID。如果要手动构建label，可能要用此字段来替换label_tag</p>
-<p><em>field.value</em><br>  字段的值</p>
-<p><em>field.html_name</em><br>  字段名称</p>
-<p><em>field.help_text</em><br>  帮助文本</p>
-<p><em>field.errors</em><br>  输出一个</p>
+<p><strong>field.id_for_label</strong><br>  用于该字段的ID。如果要手动构建label，可能要用此字段来替换label_tag</p>
+<p><strong>field.value</strong><br>  字段的值</p>
+<p><strong>field.html_name</strong><br>  字段名称</p>
+<p><strong>field.help_text</strong><br>  帮助文本</p>
+<p><strong>field.errors</strong><br>  输出一个</p>
 <pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;ul class&#x3D;&quot;errorlist&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>  其中包含这个字段的所有验证错误信息。可以用</p>
 <pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&#123;% for error in field.errors %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  循环来自定义错误信息的显示。</p>
-<p><em>field.is_hidden</em></p>
+<p><strong>field.is_hidden</strong></p>
 <p>  如果是隐藏字段，属性为True，否则为False.</p>
-<p><em>field.field</em></p>
+<p><strong>field.field</strong></p>
 <p>  看用来访问Field的属性，如</p>
 <pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&#123;&#123; char_field.field.max_length &#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -1090,18 +1090,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/django/working-with-form/">
+                <a href="/django/modelform/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="表单的使用">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="ModelForm">
                         
-                        <span class="card-title">表单的使用</span>
+                        <span class="card-title">ModelForm</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1111,41 +1110,16 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-04
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-05
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" class="post-category">
-                                    技术分享
-                                </a>
-                            
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/" class="post-category">
-                                    网站开发
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            J-Lock
                             
                         </span>
                     </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/web-develop/">
-                        <span class="chip bg-color">web develop</span>
-                    </a>
-                    
-                    <a href="/tags/Django/">
-                        <span class="chip bg-color">Django</span>
-                    </a>
-                    
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
                 </div>
                 
             </div>

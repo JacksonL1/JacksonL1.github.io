@@ -438,82 +438,79 @@
 <li>&nbsp;&nbsp;&nbsp;&nbsp; django.contrib.staticfiles – 管理静态文件的框架</li>
 </ul>
 <p>以上应用均被默认启用，方便后续项目使用。如果不想启用直接在INSTALLED_APPS的List中删除就可以了。接下来运行如下代码。</p>
-<pre><code>python manage.py migrate
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">python manage.py migrate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><img src="/pictures/migrate.png" alt="migrate result"></p>
 <h2 id="创建数据库模型"><a href="#创建数据库模型" class="headerlink" title="创建数据库模型"></a>创建数据库模型</h2><blockquote>
 <p>A model is the single, definitive source of information about your data. It contains the essential fields and behaviors of the data you’re storing. Django follows the DRY Principle. The goal is to define your data model in one place and automatically derive things from it.</p>
 </blockquote>
 <p>以官方投票应用为例，投票应用至少要包含问题和选择。所以让我们来创建满足场景的两个模型。<br>编辑polls.models.py</p>
-<pre><code>from django.db import models
+<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">from django.db import models
 from django.utils import timezone
 
 
 class Question(models.Model): #所有模型都要继承django.db.models.Model
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField(&#39;date published&#39;)
-    
-    def __str__(self):
-        return self.question_text
+	question_text &#x3D; models.CharField(max_length&#x3D;200)
+	pub_date &#x3D; models.DateTimeField(&#39;date published&#39;)
+	
+	def __str__(self):
+		return self.question_text
 
 
 class Choice(models.Model):
-    # ForeignKey定义了每个Choice关联到了哪个Question。
-    # Django支持多对一、多对多、一对一
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
-    
-    def __str__(self):
-        return self.question_text
-    
-    def was_published_recently(self):
-        # 判断是否近期发布
-        return self.pub_date &gt;= timezone.now() - datetime.timedelta(days=1)
-</code></pre>
+	# ForeignKey定义了每个Choice关联到了哪个Question。
+	# Django支持多对一、多对多、一对一
+	question &#x3D; models.ForeignKey(Question, on_delete&#x3D;models.CASCADE)
+	choice_text &#x3D; models.CharField(max_length&#x3D;200)
+	votes &#x3D; models.IntegerField(default&#x3D;0)
+	
+	def __str__(self):
+		return self.question_text
+	
+	def was_published_recently(self):
+		# 判断是否近期发布
+		return self.pub_date &gt;&#x3D; timezone.now() - datetime.timedelta(days&#x3D;1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="激活数据库模型"><a href="#激活数据库模型" class="headerlink" title="激活数据库模型"></a>激活数据库模型</h2><p>为了在工程中包含这个应用，需要在INSTALLED_APPS中添加设置。因为PollsConfig类卸载polls/app.py<br>所以我们在mysite/setting.py中添加路径</p>
-<pre><code>INSTALLED_APPS = [
-    &#39;polls.apps.PollsConfig&#39;, # 添加路径
-    &#39;django.contrib.admin&#39;,
-    &#39;django.contrib.auth&#39;,
-    &#39;django.contrib.contenttypes&#39;,
-    &#39;django.contrib.sessions&#39;,
-    &#39;django.contrib.messages&#39;,
-    &#39;django.contrib.staticfiles&#39;,
-]
-</code></pre>
+<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">INSTALLED_APPS &#x3D; [
+	&#39;polls.apps.PollsConfig&#39;, # 添加路径
+	&#39;django.contrib.admin&#39;,
+	&#39;django.contrib.auth&#39;,
+	&#39;django.contrib.contenttypes&#39;,
+	&#39;django.contrib.sessions&#39;,
+	&#39;django.contrib.messages&#39;,
+	&#39;django.contrib.staticfiles&#39;,
+]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>运行：</p>
-<pre><code>python manage.py makemigrations polls
-</code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">python manage.py makemigrations polls<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>输出结果：</p>
-<pre><code>Migrations for &#39;polls&#39;:
-    polls/migrations/0001_initial.py
-        - Create model Question
-        - Create model Choice
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">Migrations for &#39;polls&#39;:
+	polls&#x2F;migrations&#x2F;0001_initial.py
+		- Create model Question
+		- Create model Choice<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>makemigrations</strong> ：检测是否有更新，修改部分存储为一次迁移<br><strong>migrate</strong> ：把所有对模型的更改，同步到数据库结构上。</p>
 <p>数据的增删改查，参考<a target="_blank" rel="noopener" href="https://docs.djangoproject.com/zh-hans/3.2/topics/db/queries/">数据库API</a></p>
 <h2 id="管理页面"><a href="#管理页面" class="headerlink" title="管理页面"></a>管理页面</h2><h3 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h3><p>在mysite/settings.py下设置LANGUAGE_CODE为zh-hans。</p>
-<h3 id="创建一个管理员账号"><a href="#创建一个管理员账号" class="headerlink" title="创建一个管理员账号"></a>创建一个管理员账号</h3><pre><code>python manage.py createsuperuser
+<h3 id="创建一个管理员账号"><a href="#创建一个管理员账号" class="headerlink" title="创建一个管理员账号"></a>创建一个管理员账号</h3><pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">python manage.py createsuperuser
 
 Username: admin
 Email address: 276810962@qq.com
 Password: *********
 Password(again): *********
-Superuser created successfully.
-</code></pre>
-<h3 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h3><pre><code>python manage.py runserver
-</code></pre>
+Superuser created successfully.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">python manage.py runserver<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>输入 <a target="_blank" rel="noopener" href="http://127.0.0.1:8000/admin/">http://127.0.0.1:8000/admin/</a> 来访问管理界面</p>
 <p><img src="/pictures/login.png" alt="登录界面"></p>
 <h3 id="进入管理站点页面"><a href="#进入管理站点页面" class="headerlink" title="进入管理站点页面"></a>进入管理站点页面</h3><p><img src="/pictures/manage.png" alt="管理站点页面"></p>
 <h3 id="向管理页面加入应用"><a href="#向管理页面加入应用" class="headerlink" title="向管理页面加入应用"></a>向管理页面加入应用</h3><p>需要告诉管理，问题Question对象需要一个后台接口。打开polls/admin.py</p>
-<pre><code>from django.contrib import admin
+<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">from django.contrib import admin
 
 from .models import Question
 
-admin.site.register(Question)
-</code></pre>
+admin.site.register(Question)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>刷新页面后发现，Questions被显示在页面。</p>
 <p><img src="/pictures/add_app.png" alt="新增Questions"></p>
 <p>有了界面，我们就可以跳过数据库API，直接添加数据了！</p>
