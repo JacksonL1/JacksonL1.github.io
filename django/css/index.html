@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ModelForm, J-Lock的个人博客">
+    <meta name="keywords" content="Web网站介绍-CSS, J-Lock的个人博客">
     <meta name="description" content="技术、生活方面的分享与记录">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ModelForm | J-Lock的个人博客</title>
+    <title>Web网站介绍-CSS | J-Lock的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon-16x16.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -244,12 +244,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ModelForm</h1>
+                    <h1 class="description center-align post-title">Web网站介绍-CSS</h1>
                 </div>
             </div>
         </div>
@@ -363,12 +363,37 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/web-develop/">
+                                <span class="chip bg-color">web develop</span>
+                            </a>
+                        
+                            <a href="/tags/Django/">
+                                <span class="chip bg-color">Django</span>
+                            </a>
+                        
+                            <a href="/tags/CSS/">
+                                <span class="chip bg-color">CSS</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" class="post-category">
+                                技术分享
+                            </a>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/" class="post-category">
+                                网站开发
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -377,7 +402,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-05
+                    2021-11-07
                 </div>
                 
 
@@ -401,150 +426,21 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>如果想创建一个让用户提交评论的表单，在表单中定义字段类型是多余的，因为在模型中已经定义了字段。<br>因此，Django提供了一个辅助类让你可以从一个Django模型创建一个Form类。</p>
-<h2 id="ModelForm"><a href="#ModelForm" class="headerlink" title="ModelForm"></a>ModelForm</h2><pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">
-from django.forms import ModelForm
-from myapp.models import Article
+                <p><strong>CSS</strong>：层叠样式表。控制HTML元素，美化HTML网页</p>
+<ul>
+<li>样式存储在样式表中，目的是为了解决内容与表现分离的问题</li>
+<li>外部CSS文件可以极大提高工作效率</li>
+<li>多个CSS文件层叠冲突时，后者可以覆盖前者</li>
+</ul>
+<h3 id="CSS语法"><a href="#CSS语法" class="headerlink" title="CSS语法"></a>CSS语法</h3><p><img src="/pictures/grammar.png" alt="CSS"></p>
+<pre class="line-numbers language-CSS" data-language="CSS"><code class="language-CSS">&#x2F;* 注释方式 *&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-class ArticleForm(ModelForm):
-	class Meta:
-		model &#x3D; Article
-		fields &#x3D; [&#39;pub_date&#39;, &#39;headline&#39;, &#39;content&#39;, &#39;reporter&#39;]
-
-# Creating a form to add an article.
-form &#x3D; ArticleForm()
-
-# Creating a form to change an existing article.
-article &#x3D; Article.objects.get(pk&#x3D;1)
-form &#x3D; ArticleForm(instance&#x3D;article)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>举个例子：</p>
-<pre class="line-numbers language-Pyhton" data-language="Pyhton"><code class="language-Pyhton">from django.db import models
-from django.forms import ModelForm
-
-TITLE_CHOICES &#x3D; [
-    (&#39;MR&#39;, &#39;Mr.&#39;),
-    (&#39;MRS&#39;, &#39;Mrs.&#39;),
-    (&#39;MS&#39;, &#39;Ms.&#39;),
-]
-
-class Author(models.Model):
-    name &#x3D; models.CharField(max_length&#x3D;100)
-    title &#x3D; models.CharField(max_length&#x3D;3, choices&#x3D;TITLE_CHOICES)
-    birth_date &#x3D; models.DateField(blank&#x3D;True, null&#x3D;True)
-
-    def __str__(self):
-        return self.name
-
-class Book(models.Model):
-    name &#x3D; models.CharField(max_length&#x3D;100)
-    authors &#x3D; models.ManyToManyField(Author)
-
-class AuthorForm(ModelForm):
-    class Meta:
-        model &#x3D; Author
-        fields &#x3D; [&#39;name&#39;, &#39;title&#39;, &#39;birth_date&#39;]
-
-class BookForm(ModelForm):
-    class Meta:
-        model &#x3D; Book
-        fields &#x3D; [&#39;name&#39;, &#39;authors&#39;]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>其中AuthorForm和BookForm等同于：</p>
-<pre class="line-numbers language-Pyrhon" data-language="Pyrhon"><code class="language-Pyrhon">from django import forms
-
-class AuthorForm(forms.Form):
-    name &#x3D; forms.CharField(max_length&#x3D;100)
-    title &#x3D; forms.CharField(
-        max_length&#x3D;3,
-        widget&#x3D;forms.Select(choices&#x3D;TITLE_CHOICES),
-    )
-    birth_date &#x3D; forms.DateField(required&#x3D;False)
-
-class BookForm(forms.Form):
-    name &#x3D; forms.CharField(max_length&#x3D;100)
-    authors &#x3D; forms.ModelMultipleChoiceField(queryset&#x3D;Author.objects.all())<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="验证ModelForm"><a href="#验证ModelForm" class="headerlink" title="验证ModelForm"></a>验证ModelForm</h2><ol>
-<li>验证表单</li>
-<li>验证模型实例</li>
+<h3 id="使用CSS的三种方式"><a href="#使用CSS的三种方式" class="headerlink" title="使用CSS的三种方式"></a>使用CSS的三种方式</h3><ol>
+<li>内联方式（行内样式）</li>
+<li>内部方式（内嵌样式）</li>
+<li>外部导入方式（外部链入）</li>
 </ol>
-<p>模型表单验证调用is_valid()或访问errors属性时隐式触发。</p>
-<h3 id="error-messages的注意事项"><a href="#error-messages的注意事项" class="headerlink" title="error_messages的注意事项"></a>error_messages的注意事项</h3><p>在表单字段级别或者表单Meta级别定义的错误信息优先级总是高于在模型字段级别定义的。</p>
-<p>在模型字段上定义的错误信息只有在模型验证步骤引发ValidationError时才会使用，并且没有在表单级定义响应的错误信息。</p>
-<p>可以通过添加NON_FIELD_ERRORS键到ModelForm内部的Meta类的error_messages中来覆盖模型验证引发的NON_FIELD_ERRORS错误信息</p>
-<pre class="line-numbers language-Pyhton" data-language="Pyhton"><code class="language-Pyhton">from django.core.exceptions import NON_FIELD_ERRORS
-from django.forms import ModelForm
-
-class ArticleForm(ModelForm):
-    class Meta:
-        error_messages &#x3D; &#123;
-            NON_FIELD_ERRORS: &#123;
-                &#39;unique_together&#39;: &quot;%(model_name)s&#39;s %(field_labels)s are not unique.&quot;,
-            &#125;
-        &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="save-方法"><a href="#save-方法" class="headerlink" title="save()方法"></a>save()方法</h3><p>根据绑定到表单的数据创建并保存数据库对象。<br>ModelFOrm的子类可接收一个现有的模型实例作为关键字参数instance；如果提供了，save()会更新这个实例。如果没有，save()会创建一个新实例</p>
-<pre class="line-numbers language-Pyhton" data-language="Pyhton"><code class="language-Pyhton">from myapp.models import Article
-from myapp.forms import ArticleForm
-
-# Create a form instance from POST data.
-f &#x3D; ArticleForm(request.POST)
-
-# Save a new Article object from the form&#39;s data.
-new_article &#x3D; f.save()
-
-# Create a form to edit an existing Article, but use
-# POST data to populate the form.
-a &#x3D; Article.objects.get(pk&#x3D;1)
-f &#x3D; ArticleForm(request.POST, instance&#x3D;a)
-f.save()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>save()方法接收一个可选参数commit，值为Boolean。如果调用save()的时候使用commit=False，那么它会返回一个尚未保存到数据库的对象。<br>在这种情况下，需要您自己在生成的模型实力上调用save()。如果要在保存对象之前对对象执行自定义操作，或者要使用其中一个专用的模型保存选项，此方法就很有用。</p>
-<p>如果模型具有多对多关系，并且在保存表单时制定了commit=False，Django无法立即保存多对多关系的表单数据。这是因为实例的多对多数据只有实例在数据库中存在时才能保存。</p>
-<p>要解决这个问题，Django会在每次使用commit=False保存表单时，向ModelForm子类添加一个save_m2m()方法。在您手动保存表单生成的实例后，可以调用save_m2m()来保存多对多的表单数据。</p>
-<pre class="line-numbers language-Pyrhon" data-language="Pyrhon"><code class="language-Pyrhon"># Create a form instance with POST data.
-f &#x3D; AuthorForm(request.POST)
-
-# Create, but don&#39;t save the new author instance.
-new_author &#x3D; f.save(commit&#x3D;False)
-
-# Modify the author in some way.
-new_author.some_field &#x3D; &#39;some_value&#39;
-
-# Save the new instance.
-new_author.save()
-
-# Now, save the many-to-many data for the form.
-f.save_m2m()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>只有在使用save(commit=False)的时候才需要调用save_m2m()。 当您在表单上使用save()时，无需调用其他方法，所有数据都会被保存。</p>
-<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">a &#x3D; Author()
-f &#x3D; AuthorForm(request.POST, instance&#x3D;a)
-new_author &#x3D; f.save()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="选择要使用的字段"><a href="#选择要使用的字段" class="headerlink" title="选择要使用的字段"></a>选择要使用的字段</h3><p>强烈建议使用fields属性来显式设置所有应在表单中编辑的字段。如果不这样做，当一张表单不慎允许用户设置某些字段，尤其是在将新字段添加到模型中时，很容易导致安全问题。根据表单渲染方式的不同，甚至可能不会在网页上现实问题。</p>
-<p>有两种简单的方法保证不会出现安全问题：</p>
-<ol>
-<li>将fields属性设置为特殊值’<strong>all</strong>‘以表明需要使用模型中的所有字段。如：</li>
-</ol>
-<pre class="line-numbers language-Pyhton" data-language="Pyhton"><code class="language-Pyhton">from django.forms import ModelForm
-
-class AuthorForm(ModelForm):
-    class Meta:
-        model &#x3D; Author
-        fields &#x3D; &#39;__all__&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol start="2">
-<li>将ModelForm中Meta类的exclude属性设置为表单中需要排除的字段列表。如：</li>
-</ol>
-<pre class="line-numbers language-Pyhton" data-language="Pyhton"><code class="language-Pyhton">class PartialAuthorForm(ModelForm):
-    class Meta:
-        model &#x3D; Author
-        exclude &#x3D; [&#39;title&#39;]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>由于Author模型有三个字段name、title和birth_date，上例的结果时字段name和birth_date会呈现在表单中。</p>
-<p>另外，Django有个规则：如果在模型字段中定义了editable=False，任何使用ModelForm创建的表单都不会包含field。</p>
+<p><strong>优先级</strong>： 当样式冲突时，采用就近原则（CSS属性离被修饰的内容最近的为主）；没有样式冲突则采用叠加效果</p>
 
                 
             </div>
@@ -571,7 +467,7 @@ class AuthorForm(ModelForm):
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://chynapple.com/django/modelform/">https://chynapple.com/django/modelform/</a>
+                    <a href="https://chynapple.com/django/css/">https://chynapple.com/django/css/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -608,7 +504,19 @@ class AuthorForm(ModelForm):
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/web-develop/">
+                                    <span class="chip bg-color">web develop</span>
+                                </a>
+                            
+                                <a href="/tags/Django/">
+                                    <span class="chip bg-color">Django</span>
+                                </a>
+                            
+                                <a href="/tags/CSS/">
+                                    <span class="chip bg-color">CSS</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1039,9 +947,72 @@ class AuthorForm(ModelForm):
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/django/css/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Web网站介绍-CSS">
+                        
+                        <span class="card-title">Web网站介绍-CSS</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" class="post-category">
+                                    技术分享
+                                </a>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/" class="post-category">
+                                    网站开发
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/web-develop/">
+                        <span class="chip bg-color">web develop</span>
+                    </a>
+                    
+                    <a href="/tags/Django/">
+                        <span class="chip bg-color">Django</span>
+                    </a>
+                    
+                    <a href="/tags/CSS/">
+                        <span class="chip bg-color">CSS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/django/html/">
                     <div class="card-image">
@@ -1059,9 +1030,9 @@ class AuthorForm(ModelForm):
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1091,67 +1062,6 @@ class AuthorForm(ModelForm):
                     
                     <a href="/tags/HTML/">
                         <span class="chip bg-color">HTML</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/django/working-with-form/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="表单的使用">
-                        
-                        <span class="card-title">表单的使用</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-04
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" class="post-category">
-                                    技术分享
-                                </a>
-                            
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/" class="post-category">
-                                    网站开发
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/web-develop/">
-                        <span class="chip bg-color">web develop</span>
-                    </a>
-                    
-                    <a href="/tags/Django/">
-                        <span class="chip bg-color">Django</span>
-                    </a>
-                    
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
